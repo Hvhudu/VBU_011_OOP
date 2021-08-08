@@ -27,12 +27,9 @@ public:
 		this->str = new char[size] {};
 		cout << "DefConstructor:\t" << this << endl;
 	}
-	String(const char* str)	//Константный указатель на char - это стрококвая константа
+	String(const char* str) :size(strlen(str) + 1), str(new char[size] {})	//Константный указатель на char - это стрококвая константа
 	{
-		//while (str[size++]);
-		this->size = strlen(str) + 1;	//+1 потому что this->size хранит размер в Байтах, 
-										//а strlen() считает размер в символах
-		this->str = new char[size] {};
+
 		for (int i = 0; i < size; i++)this->str[i] = str[i];
 		cout << "1argConstructor:" << this << endl;
 	}
